@@ -1,15 +1,15 @@
 modLoader="javafml"
 loaderVersion="[39,)"
-license="MIT"
-# issueTrackerURL=""
+license="Custom"
+issueTrackerURL="https://github.com/willatendo/More-Right-Click-Functions/issues"
 
 [[mods]]
 modId="morerightclickfunctions" 
 version="1.0.0"
 displayName="More Right Click Functions"
-# updateJSONURL=""
-# displayURL=""
-# logoFile="" 
+updateJSONURL="https://github.com/willatendo/More-Right-Click-Functions/raw/main/updates.json"
+displayURL="https://github.com/willatendo/More-Right-Click-Functions"
+logoFile="more_right_click_functions_logo.png" 
 authors="Willatendo"
 description='''
 Adds more right click functions!
@@ -29,8 +29,8 @@ Adds more right click functions!
     ordering="NONE"
     side="BOTH"
     
-[[dependencies.roses]]
-    modId="morerightclickfunctions"
+[[dependencies.morerightclickfunctions]]
+    modId="tyrannotitanlib"
     mandatory=true
     versionRange="[v4.0.0,)"
     ordering="NONE"
