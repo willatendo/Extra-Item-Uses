@@ -1,25 +1,17 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
-
-version = '2.0.0'
+version = '2.1.0'
 group = 'morerightclickfunctions'
 archivesBaseName = 'morerightclickfunctions'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: '1.19'
 	
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     
@@ -28,7 +20,7 @@ minecraft {
             workingDirectory project.file('run')
 
             mods {
-                utilitiesplus {
+                morerightclickfunctions {
                     source sourceSets.main
                 }
             }
@@ -37,7 +29,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.54'
+	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 }
 
 jar {
@@ -45,7 +37,7 @@ jar {
         attributes([
             "Specification-Title": "morerightclickfunctions",
             "Specification-Vendor": "Willatendo",
-            "Specification-Version": "2.0.0",
+            "Specification-Version": "2.1.0",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"Willatendo",

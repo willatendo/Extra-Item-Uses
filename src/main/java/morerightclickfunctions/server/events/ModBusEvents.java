@@ -5,16 +5,16 @@ import morerightclickfunctions.server.MoreRightClickFunctionsConfig;
 import morerightclickfunctions.server.MoreRightClickFunctionsMaps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @EventBusSubscriber(bus = Bus.MOD, modid = MoreRightClickFunctionsMod.ID)
 public class ModBusEvents {
 	@SubscribeEvent
-	public static void addRightClickFunctions(Register<Block> event) {
+	public static void makeMapsOnCommonSetup(FMLCommonSetupEvent event) {
 		makeMaps();
 	}
 
