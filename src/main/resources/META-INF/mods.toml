@@ -1,11 +1,11 @@
 modLoader="javafml"
-loaderVersion="[39,)"
+loaderVersion="[40,)"
 license="Custom"
 issueTrackerURL="https://github.com/willatendo/More-Right-Click-Functions/issues"
 
 [[mods]]
 modId="morerightclickfunctions" 
-version="1.0.0"
+version="2.0.0"
 displayName="More Right Click Functions"
 updateJSONURL="https://github.com/willatendo/More-Right-Click-Functions/raw/main/updates.json"
 displayURL="https://github.com/willatendo/More-Right-Click-Functions"
@@ -18,20 +18,13 @@ Adds more right click functions!
 [[dependencies.morerightclickfunctions]] 
     modId="forge" 
     mandatory=true 
-    versionRange="[39,)" 
+    versionRange="[40,)" 
     ordering="NONE"
     side="BOTH"
     
 [[dependencies.morerightclickfunctions]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.1,1.19)"
-    ordering="NONE"
-    side="BOTH"
-    
-[[dependencies.morerightclickfunctions]]
-    modId="tyrannotitanlib"
-    mandatory=true
-    versionRange="[v4.0.0,)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"
