@@ -1,0 +1,40 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "morerightclickfunctions",
+		"id": "morerightclickfunctions",
+		"version": "1.0.0",
+		"metadata": {
+			"name": "More Right Click Functions",
+			"description": "dds more right click functions!",
+			"contributors": {
+				"Willatendo": "Owner"
+			},
+			"contact": {
+				"homepage": "https://github.com/willatendo/More-Right-Click-Functions",
+				"issues": "https://github.com/willatendo/More-Right-Click-Functions/issue",
+				"sources": "https://github.com/willatendo/More-Right-Click-Functions"
+			},
+			"icon": "more_right_click_functions_logo.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "morerightclickfunctions.MoreRightClickFunctionsMod"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.17.0-"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"versions": ">=2.0.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.19"
+			}
+		]
+	},
+	"mixin": "morerightclickfunctions.mixins.json"
+}
