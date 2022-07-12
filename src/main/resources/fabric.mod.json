@@ -18,6 +18,9 @@
 	"entrypoints": {
 		"main": [
 			"morerightclickfunctions.MoreRightClickFunctionsMod"
+		],
+		"jei_mod_plugin": [
+			"morerightclickfunctions.server.jei.MoreRightClickFunctionsJeiPlugin"
 		]
 	},
 	"mixins": [
