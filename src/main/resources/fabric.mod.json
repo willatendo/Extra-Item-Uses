@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "morerightclickfunctions",
+	"version": "1.0.0",
+	"name": "More Right Click Functions",
+	"description": "Adds more right click functions!",
+	"authors": [
+		"Willatendo"
+	],
+	"contact": {
+		"homepage": "https://github.com/willatendo/More-Right-Click-Functions",
+		"issues": "https://github.com/willatendo/More-Right-Click-Functions/issue",
+		"sources": "https://github.com/willatendo/More-Right-Click-Functions"
+	},
+	"license": "https://github.com/willatendo/Willatendos-Licensing",
+	"icon": "more_right_click_functions_logo.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"morerightclickfunctions.MoreRightClickFunctionsMod"
+		]
+	},
+	"mixins": [
+		"morerightclickfunctions.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.7",
+		"fabric": "*",
+		"minecraft": "~1.19",
+		"java": ">=17"
+	}
+}

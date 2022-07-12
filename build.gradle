@@ -1,60 +1,52 @@
 plugins {
-    id 'eclipse'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
+	id 'fabric-loom' version '0.12-SNAPSHOT'
+	id 'maven-publish'
 }
 
-version = '2.2.0'
-group = 'morerightclickfunctions'
-archivesBaseName = 'morerightclickfunctions'
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-minecraft {
-    mappings channel: 'official', version: '1.19'
-	
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-    
-    runs {
-        client {
-            workingDirectory project.file('run')
-
-            mods {
-                morerightclickfunctions {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
-}
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
 
 repositories {
 	maven { 
-		name = "Progwml6 maven";
+		name = "Progwml6 maven"
 		url = "https://dvs1.progwml6.com/files/maven/" 
 	}
 }
 
 dependencies {
-	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-	
-	compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-	compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
-	runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	modImplementation "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+	modImplementation "mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}"
+	modImplementation "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+}
+
+java {
+	withSourcesJar()
 }
 
 jar {
-    manifest {
-        attributes([
-            "Specification-Title": "morerightclickfunctions",
-            "Specification-Vendor": "Willatendo",
-            "Specification-Version": "2.2.0",
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"Willatendo",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
+	from("LICENSE") {
+		rename { "${it}_${project.archivesBaseName}"}
+	}
 }
-
-jar.finalizedBy('reobfJar') 
