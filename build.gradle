@@ -4,7 +4,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
-version = '2.1.0'
+version = '2.2.0'
 group = 'morerightclickfunctions'
 archivesBaseName = 'morerightclickfunctions'
 
@@ -48,7 +48,7 @@ jar {
         attributes([
             "Specification-Title": "morerightclickfunctions",
             "Specification-Vendor": "Willatendo",
-            "Specification-Version": "2.1.0",
+            "Specification-Version": "2.2.0",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"Willatendo",
