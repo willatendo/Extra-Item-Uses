@@ -20,5 +20,13 @@ public class CommonConfig implements Config.Creator {
 			b.field(TrackedValue.create(this.crackables_input, "crackables_input", c -> c.getDefaultValue()));
 			b.field(TrackedValue.create(this.crackables_output, "crackables_output", c -> c.getDefaultValue()));
 		});
+		builder.section("grindables", b -> {
+			b.field(TrackedValue.create(this.grindables_input, "grindables_input", c -> c.getDefaultValue()));
+			b.field(TrackedValue.create(this.grindables_output, "grindables_output", c -> c.getDefaultValue()));
+		});
+		builder.section("chiselables", b -> {
+			b.field(TrackedValue.create(this.chiselables_input, "chiselables_input", c -> c.getDefaultValue()));
+			b.field(TrackedValue.create(this.chiselables_output, "chiselables_output", c -> c.getDefaultValue()));
+		});
 	}
 }
