@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import morerightclickfunctions.server.MoreRightClickFunctionsConfig;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
@@ -15,5 +16,9 @@ public class MoreRightClickFunctionsMod {
 
 	public MoreRightClickFunctionsMod() {
 		ModLoadingContext.get().registerConfig(Type.COMMON, MoreRightClickFunctionsConfig.commonSpec);
+	}
+
+	public static ResourceLocation rL(String path) {
+		return new ResourceLocation(ID, path);
 	}
 }

@@ -28,8 +28,19 @@ minecraft {
     }
 }
 
+repositories {
+	maven { 
+		name = "Progwml6 maven";
+		url = "https://dvs1.progwml6.com/files/maven/" 
+	}
+}
+
 dependencies {
 	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+	
+	compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+	compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+	runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 }
 
 jar {

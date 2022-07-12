@@ -33,6 +33,7 @@ public class ForgeBusEvents {
 		int fireAspect = EnchantmentHelper.getFireAspect(player);
 
 		if (itemInHand.getItem() instanceof PickaxeItem) {
+			event.setUseBlock(Result.DENY);
 			Optional<BlockState> crack = Optional.ofNullable(getCracked(blockstate));
 			if (crack.isPresent()) {
 				level.playSound(player, pos, SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -43,11 +44,11 @@ public class ForgeBusEvents {
 					});
 				}
 				player.swing(hand);
-				event.setUseBlock(Result.DENY);
 			}
 		}
 
 		if (itemInHand.getItem() instanceof ShovelItem) {
+			event.setUseBlock(Result.DENY);
 			Optional<BlockState> grind = Optional.ofNullable(getGrindables(blockstate));
 			if (grind.isPresent()) {
 				level.playSound(player, pos, SoundEvents.SAND_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -58,11 +59,11 @@ public class ForgeBusEvents {
 					});
 				}
 				player.swing(hand);
-				event.setUseBlock(Result.DENY);
 			}
 		}
 
 		if (itemInHand.is(Items.STICK)) {
+			event.setUseBlock(Result.DENY);
 			Optional<BlockState> chisel = Optional.ofNullable(getChiseled(blockstate));
 			if (chisel.isPresent()) {
 				level.playSound(player, pos, SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -73,7 +74,6 @@ public class ForgeBusEvents {
 					});
 				}
 				player.swing(hand);
-				event.setUseBlock(Result.DENY);
 			}
 		}
 
