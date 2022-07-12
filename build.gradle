@@ -15,6 +15,10 @@ repositories {
 		name = "Progwml6 maven"
 		url = "https://dvs1.progwml6.com/files/maven/" 
 	}
+	maven {
+        name = "Fuzs Mod Resources"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    }
 }
 
 dependencies {
@@ -27,6 +31,8 @@ dependencies {
 	modImplementation "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
 	modImplementation "mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}"
 	modImplementation "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
+	
+	modImplementation "net.minecraftforge:forgeconfigapiport-fabric:${config_version}"
 }
 
 processResources {
