@@ -4,7 +4,10 @@
 	"package": "morerightclickfunctions.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"CrackablesAdderMixin"
+		"ChiselablesAdderMixin",
+		"CrackablesAdderMixin",
+		"FireAspectLightsCandleAdderMixin",
+		"GrindablesAdderMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

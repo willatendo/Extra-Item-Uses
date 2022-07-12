@@ -7,6 +7,13 @@ archivesBaseName = project.archives_base_name
 version = project.version
 group = project.maven_group
 
+repositories {
+	maven { 
+		name = "Progwml6 maven"
+		url = "https://dvs1.progwml6.com/files/maven/" 
+	}
+}
+
 dependencies {
 	minecraft libs.minecraft
 	mappings loom.layered {
@@ -15,6 +22,10 @@ dependencies {
 	modImplementation libs.quilt.loader
 
 	modImplementation libs.quilted.fabric.api
+
+	modImplementation "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+	modImplementation "mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}"
+	modImplementation "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
 }
 
 processResources {

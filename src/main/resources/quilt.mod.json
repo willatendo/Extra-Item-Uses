@@ -19,7 +19,8 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "morerightclickfunctions.MoreRightClickFunctionsMod"
+			"init": "morerightclickfunctions.MoreRightClickFunctionsMod",
+			"jei_mod_plugin": "morerightclickfunctions.server.jei.MoreRightClickFunctionsJeiPlugin"
 		},
 		"depends": [
 			{
