@@ -1,9 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "morerightclickfunctions.fabric.mixins",
+  "package": "morerightclickfunctions.fabric.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CrackablesAdderMixin",
+    "FireAspectLightsCandleAdderMixin",
+    "GrindablesAdderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

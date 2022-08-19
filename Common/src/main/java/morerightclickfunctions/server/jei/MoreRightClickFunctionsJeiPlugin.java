@@ -1,4 +1,4 @@
-package morerightclickfunctions.forge.server.jei;
+package morerightclickfunctions.server.jei;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -8,10 +8,10 @@ import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IIngredientManager;
-import morerightclickfunctions.forge.server.jei.category.ChiselablesCategory;
-import morerightclickfunctions.forge.server.jei.category.CrackablesCategory;
-import morerightclickfunctions.forge.server.jei.category.GrindablesCategory;
-import morerightclickfunctions.forge.server.jei.recipe.MoreRightClickFunctionsRecipeManager;
+import morerightclickfunctions.server.jei.category.ChiselablesCategory;
+import morerightclickfunctions.server.jei.category.CrackablesCategory;
+import morerightclickfunctions.server.jei.category.GrindablesCategory;
+import morerightclickfunctions.server.jei.recipe.MoreRightClickFunctionsRecipeManager;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 

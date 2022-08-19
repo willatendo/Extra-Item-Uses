@@ -20,7 +20,7 @@
       "morerightclickfunctions.fabric.MoreRightClickFunctionsFabricMod"
     ],
     "jei_mod_plugin": [
-      "morerightclickfunctions.fabric.server.jei.MoreRightClickFunctionsJeiPlugin"
+      "morerightclickfunctions.server.jei.MoreRightClickFunctionsJeiPlugin"
     ]
   },
   "mixins": [

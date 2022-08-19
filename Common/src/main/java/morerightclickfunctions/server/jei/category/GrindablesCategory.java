@@ -1,4 +1,4 @@
-package morerightclickfunctions.forge.server.jei.category;
+package morerightclickfunctions.server.jei.category;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -8,29 +8,29 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import morerightclickfunctions.forge.server.jei.MoreRightClickFunctionsJeiConstants;
-import morerightclickfunctions.forge.server.jei.recipe.CrackablesRecipe;
+import morerightclickfunctions.server.jei.recipe.GrindablesRecipe;
+import morerightclickfunctions.server.jei.MoreRightClickFunctionsJeiConstants;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class CrackablesCategory implements IRecipeCategory<CrackablesRecipe> {
+public class GrindablesCategory implements IRecipeCategory<GrindablesRecipe> {
     private final IDrawable background;
     private final IDrawable icon;
 
-    public CrackablesCategory(IGuiHelper guiHelper) {
+    public GrindablesCategory(IGuiHelper guiHelper) {
         this.background = guiHelper.createBlankDrawable(80, 40);
-        this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, Items.DIAMOND_PICKAXE.getDefaultInstance());
+        this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, Items.DIAMOND_SHOVEL.getDefaultInstance());
     }
 
     @Override
-    public RecipeType<CrackablesRecipe> getRecipeType() {
-        return MoreRightClickFunctionsJeiConstants.CRACKABLES;
+    public RecipeType<GrindablesRecipe> getRecipeType() {
+        return MoreRightClickFunctionsJeiConstants.GRINDABLES;
     }
 
     @Override
     public Component getTitle() {
-        return Component.translatable("jei.morerightclickfunctions.crackables");
+        return Component.translatable("jei.morerightclickfunctions.grindables");
     }
 
     @Override
@@ -44,9 +44,9 @@ public class CrackablesCategory implements IRecipeCategory<CrackablesRecipe> {
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, CrackablesRecipe recipe, IFocusGroup focuses) {
+    public void setRecipe(IRecipeLayoutBuilder builder, GrindablesRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 5, 10).addIngredients(Ingredient.of(recipe.input().asItem()));
-        builder.addSlot(RecipeIngredientRole.CATALYST, 32, 10).addIngredients(Ingredient.of(Items.DIAMOND_PICKAXE));
+        builder.addSlot(RecipeIngredientRole.CATALYST, 32, 10).addIngredients(Ingredient.of(Items.DIAMOND_SHOVEL));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 60, 10).addIngredients(Ingredient.of(recipe.output().asItem()));
     }
 }

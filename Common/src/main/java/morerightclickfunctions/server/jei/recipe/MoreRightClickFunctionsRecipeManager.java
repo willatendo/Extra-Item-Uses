@@ -1,10 +1,13 @@
-package morerightclickfunctions.forge.server.jei.recipe;
+package morerightclickfunctions.server.jei.recipe;
 
 import java.util.ArrayList;
 
 import mezz.jei.api.helpers.IJeiHelpers;
 import mezz.jei.api.runtime.IIngredientManager;
 import morerightclickfunctions.server.MoreRightClickFunctionsMaps;
+import morerightclickfunctions.server.jei.recipe.ChiselablesRecipe;
+import morerightclickfunctions.server.jei.recipe.CrackablesRecipe;
+import morerightclickfunctions.server.jei.recipe.GrindablesRecipe;
 
 public class MoreRightClickFunctionsRecipeManager {
 	public static ArrayList<ChiselablesRecipe> getChiselableRecipes(IIngredientManager ingredientManager, IJeiHelpers helpers) {

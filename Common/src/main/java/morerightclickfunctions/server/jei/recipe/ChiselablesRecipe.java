@@ -1,4 +1,4 @@
-package morerightclickfunctions.forge.server.jei.recipe;
+package morerightclickfunctions.server.jei.recipe;
 
 import net.minecraft.world.level.block.Block;
 

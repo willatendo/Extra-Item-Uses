@@ -20,7 +20,7 @@
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
       "init": "morerightclickfunctions.quilt.MoreRightClickFunctionsQuiltMod",
-      "jei_mod_plugin": "morerightclickfunctions.quilt.server.jei.MoreRightClickFunctionsJeiPlugin"
+      "jei_mod_plugin": "morerightclickfunctions.server.jei.MoreRightClickFunctionsJeiPlugin"
     },
     "depends": [
       {
