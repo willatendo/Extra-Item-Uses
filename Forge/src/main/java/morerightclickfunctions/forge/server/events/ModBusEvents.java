@@ -4,6 +4,7 @@ import morerightclickfunctions.MoreRightClickFunctionsMod;
 import morerightclickfunctions.forge.server.MoreRightClickFunctionsConfig;
 import morerightclickfunctions.server.MoreRightClickFunctionsMaps;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -50,6 +51,17 @@ public class ModBusEvents {
                 MoreRightClickFunctionsMod.LOGGER.debug("Warning! Chiselables is broken and the game will crash!");
             }
             MoreRightClickFunctionsMaps.CHISELABLES.put(input, output);
+        }
+        for (int i = 0; i < MoreRightClickFunctionsConfig.COMMON_CONFIG.reapables_input.get().size(); i++) {
+            Block input = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MoreRightClickFunctionsConfig.COMMON_CONFIG.reapables_input.get().get(i)));
+            Item output = ForgeRegistries.ITEMS.getValue(new ResourceLocation(MoreRightClickFunctionsConfig.COMMON_CONFIG.reapables_output.get().get(i)));
+            if (input == null) {
+                MoreRightClickFunctionsMod.LOGGER.debug("Warning! Chiselables is broken and the game will crash!");
+            }
+            if (output == null) {
+                MoreRightClickFunctionsMod.LOGGER.debug("Warning! Chiselables is broken and the game will crash!");
+            }
+            MoreRightClickFunctionsMaps.REAPABLES.put(input, output);
         }
     }
 }

@@ -2,8 +2,6 @@ subprojects {
     apply plugin: 'java'
 
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-    java.withSourcesJar()
-    java.withJavadocJar()
 
     jar {
         from(rootProject.file("LICENSE")) {
@@ -25,38 +23,26 @@ subprojects {
         }
     }
 
-    sourcesJar {
-        from(rootProject.file("LICENSE")) {
-            rename { "${it}_${mod_name}" }
-        }
-    }
-
     repositories {
         mavenCentral()
 
         maven {
-            name = "Progwml6 maven";
+            name = "Progwml6 Maven"
             url = "https://dvs1.progwml6.com/files/maven/"
         }
 
         maven {
-            name = "Fuzs Mod Resources"
+            name = "Fuzs Maven"
             url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
         }
 
         maven {
-            name = 'Sponge / Mixin'
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
-        }
-
-        maven {
-            name = 'BlameJared Maven (CrT / Bookshelf)'
-            url = 'https://maven.blamejared.com'
+            name = "Mixin Maven"
+            url = "https://repo.spongepowered.org/repository/maven-public/"
         }
     }
 
     tasks.withType(JavaCompile).configureEach {
-
         it.options.encoding = 'UTF-8'
         it.options.release = 17
     }

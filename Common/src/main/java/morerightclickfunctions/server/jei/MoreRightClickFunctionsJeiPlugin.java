@@ -11,6 +11,7 @@ import mezz.jei.api.runtime.IIngredientManager;
 import morerightclickfunctions.server.jei.category.ChiselablesCategory;
 import morerightclickfunctions.server.jei.category.CrackablesCategory;
 import morerightclickfunctions.server.jei.category.GrindablesCategory;
+import morerightclickfunctions.server.jei.category.ReapablesCategory;
 import morerightclickfunctions.server.jei.recipe.MoreRightClickFunctionsRecipeManager;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -30,6 +31,7 @@ public class MoreRightClickFunctionsJeiPlugin implements IModPlugin {
         recipeRegistration.addRecipes(MoreRightClickFunctionsJeiConstants.CHISELABLES, MoreRightClickFunctionsRecipeManager.getChiselableRecipes(ingredientManager, jeiHelpers));
         recipeRegistration.addRecipes(MoreRightClickFunctionsJeiConstants.CRACKABLES, MoreRightClickFunctionsRecipeManager.getCrackablesRecipes(ingredientManager, jeiHelpers));
         recipeRegistration.addRecipes(MoreRightClickFunctionsJeiConstants.GRINDABLES, MoreRightClickFunctionsRecipeManager.getGrindablesRecipes(ingredientManager, jeiHelpers));
+        recipeRegistration.addRecipes(MoreRightClickFunctionsJeiConstants.REAPABLES, MoreRightClickFunctionsRecipeManager.getReapablesRecipes(ingredientManager, jeiHelpers));
     }
 
     @Override
@@ -39,6 +41,7 @@ public class MoreRightClickFunctionsJeiPlugin implements IModPlugin {
         recipeCategoryRegistration.addRecipeCategories(new ChiselablesCategory(helper));
         recipeCategoryRegistration.addRecipeCategories(new CrackablesCategory(helper));
         recipeCategoryRegistration.addRecipeCategories(new GrindablesCategory(helper));
+        recipeCategoryRegistration.addRecipeCategories(new ReapablesCategory(helper));
     }
 
     @Override
@@ -56,5 +59,11 @@ public class MoreRightClickFunctionsJeiPlugin implements IModPlugin {
         recipeCatalystRegistration.addRecipeCatalyst(Items.NETHERITE_SHOVEL.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.GRINDABLES);
         recipeCatalystRegistration.addRecipeCatalyst(Items.STONE_SHOVEL.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.GRINDABLES);
         recipeCatalystRegistration.addRecipeCatalyst(Items.WOODEN_SHOVEL.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.GRINDABLES);
+        recipeCatalystRegistration.addRecipeCatalyst(Items.DIAMOND_HOE.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.REAPABLES);
+        recipeCatalystRegistration.addRecipeCatalyst(Items.GOLDEN_HOE.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.REAPABLES);
+        recipeCatalystRegistration.addRecipeCatalyst(Items.IRON_HOE.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.REAPABLES);
+        recipeCatalystRegistration.addRecipeCatalyst(Items.NETHERITE_HOE.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.REAPABLES);
+        recipeCatalystRegistration.addRecipeCatalyst(Items.STONE_HOE.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.REAPABLES);
+        recipeCatalystRegistration.addRecipeCatalyst(Items.WOODEN_HOE.getDefaultInstance(), MoreRightClickFunctionsJeiConstants.REAPABLES);
     }
 }

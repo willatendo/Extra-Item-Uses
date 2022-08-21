@@ -1,5 +1,10 @@
 {
   "jei.morerightclickfunctions.chiselables": "Chiselables",
   "jei.morerightclickfunctions.crackables": "Crackables",
-  "jei.morerightclickfunctions.grindables": "Grindables"
+  "jei.morerightclickfunctions.grindables": "Grindables",
+  "jei.morerightclickfunctions.reapables": "Reapables",
+  "item.morerightclickfunctions.wheat": "Grown Wheat Crop",
+  "item.morerightclickfunctions.carrots": "Grown Carrots Crop",
+  "item.morerightclickfunctions.potatoes": "Grown Potatoes Crop",
+  "item.morerightclickfunctions.beetroots": "Grown Beetroots Crop"
 }

@@ -23,7 +23,6 @@ dependencies {
     implementation project(":Common")
 }
 
-
 loom {
     runs {
         client {
@@ -40,7 +39,6 @@ loom {
         }
     }
 }
-
 
 processResources {
     from project(":Common").sourceSets.main.resources

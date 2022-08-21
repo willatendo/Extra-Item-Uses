@@ -4,12 +4,12 @@ import morerightclickfunctions.MoreRightClickFunctionsMod;
 import morerightclickfunctions.server.MoreRightClickFunctionsMaps;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.AbstractCandleBlock;
+import net.minecraft.world.level.block.BeetrootBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
@@ -61,6 +61,26 @@ public class ForgeBusEvents {
             }
         }
 
+        if (itemInHand.getItem() instanceof HoeItem) {
+            event.setUseBlock(Result.DENY);
+            Optional<Item> reapables = Optional.ofNullable(getReapables(blockstate));
+            if (reapables.isPresent()) {
+                if (level.getBlockState(pos).getBlock() instanceof CropBlock cropBlock) {
+                    if (cropBlock.isMaxAge(level.getBlockState(pos))) {
+                        level.playSound(player, pos, SoundEvents.GRASS_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(cropBlock instanceof BeetrootBlock ? BeetrootBlock.AGE : CropBlock.AGE, 0));
+                        Block.popResource(level, pos, reapables.get().getDefaultInstance());
+                        if (player != null) {
+                            itemInHand.hurtAndBreak(1, player, (toBroadcastTo) -> {
+                                toBroadcastTo.broadcastBreakEvent(hand);
+                            });
+                        }
+                        player.swing(hand);
+                    }
+                }
+            }
+        }
+
         if (itemInHand.is(Items.STICK)) {
             event.setUseBlock(Result.DENY);
             Optional<BlockState> chisel = Optional.ofNullable(getChiseled(blockstate));
@@ -109,4 +129,7 @@ public class ForgeBusEvents {
         return block != null ? block.defaultBlockState() : null;
     }
 
+    private static Item getReapables(BlockState state) {
+        return MoreRightClickFunctionsMaps.REAPABLES.build().get(state.getBlock());
+    }
 }
