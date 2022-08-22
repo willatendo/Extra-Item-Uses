@@ -4,6 +4,7 @@ import morerightclickfunctions.MoreRightClickFunctionsMod;
 import morerightclickfunctions.server.MoreRightClickFunctionsMaps;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.AbstractCandleBlock;
@@ -69,7 +70,9 @@ public class ForgeBusEvents {
                     if (cropBlock.isMaxAge(level.getBlockState(pos))) {
                         level.playSound(player, pos, SoundEvents.GRASS_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
                         level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(cropBlock instanceof BeetrootBlock ? BeetrootBlock.AGE : CropBlock.AGE, 0));
-                        Block.popResource(level, pos, reapables.get().getDefaultInstance());
+                        for (int i = 0; i < RandomSource.create().nextInt(2) + 1; i++) {
+                            Block.popResource(level, pos, reapables.get().getDefaultInstance());
+                        }
                         if (player != null) {
                             itemInHand.hurtAndBreak(1, player, (toBroadcastTo) -> {
                                 toBroadcastTo.broadcastBreakEvent(hand);
