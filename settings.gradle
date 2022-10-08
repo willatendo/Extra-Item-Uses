@@ -1,28 +1,6 @@
 pluginManagement {
     repositories {
-        maven {
-            name = 'Fabric'
-            url = 'https://maven.fabricmc.net/'
-        }
-        maven {
-            name = 'Sponge Snapshots'
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
-        }
-		
-		maven {
-            name = 'Quilt (Release)'
-            url = 'https://maven.quiltmc.org/repository/release'
-        }
-        
-        maven {
-            name = 'Quilt (Snapshot)'
-            url = 'https://maven.quiltmc.org/repository/snapshot'
-        }
-
-        mavenCentral()
         gradlePluginPortal()
+        maven { url = 'https://maven.minecraftforge.net/' }
     }
 }
-
-rootProject.name = 'More-Right-Click-Functions'
-include("Common", "Fabric", "Forge", "Quilt")

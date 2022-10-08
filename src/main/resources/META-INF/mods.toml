@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+license="https://github.com/willatendo/Willatendos-Licensing"
+issueTrackerURL="https://github.com/willatendo/More-Right-Click-Functions/issues"
+
+[[mods]]
+modId="morerightclickfunctions" 
+version="2.3.0"
+displayName="More Right Click Functions"
+updateJSONURL="https://github.com/willatendo/More-Right-Click-Functions/raw/main/updates.json"
+displayURL="https://github.com/willatendo/More-Right-Click-Functions"
+logoFile="more_right_click_functions_logo.png" 
+authors="Willatendo"
+description='''
+Adds more right click functions!
+'''
+
+[[dependencies.morerightclickfunctions]] 
+    modId="forge" 
+    mandatory=true 
+    versionRange="[43,)" 
+    ordering="NONE"
+    side="BOTH"
+    
+[[dependencies.morerightclickfunctions]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"
