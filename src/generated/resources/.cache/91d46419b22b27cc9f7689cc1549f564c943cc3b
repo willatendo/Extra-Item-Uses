@@ -1,0 +1,10 @@
+// 1.19.3	2023-02-12T09:59:12.2661993	Tags for minecraft:block mod id extraitemuses
+1b50a67efc31f461ce0bca94ec806cbf528412db data/extraitemuses/tags/blocks/coal_poppables.json
+f28dc9f2c7d071fef84fb760a59427d564938731 data/extraitemuses/tags/blocks/diamond_poppables.json
+913bc5c31b098eada6b776a32e560c19f9515e61 data/extraitemuses/tags/blocks/emerald_poppables.json
+89a7253fe70309e791af46e2363de068e26b63f2 data/extraitemuses/tags/blocks/lapis_poppables.json
+d6cc7b45842bf7bada70aae6db2b46a4d2882c31 data/extraitemuses/tags/blocks/quartz_poppables.json
+37c1e07dffc966dafe0401977955eba42bfaeccf data/extraitemuses/tags/blocks/raw_copper_poppables.json
+fdf6b43d1eb98ab0a3c0823767b0e85ca26e2abf data/extraitemuses/tags/blocks/raw_gold_poppables.json
+11016ca20eef8807f79a3d6958510957c0501d65 data/extraitemuses/tags/blocks/raw_iron_poppables.json
+d1b3de80a7e228bb1b85aa05703471032bc2a8c8 data/extraitemuses/tags/blocks/redstone_poppables.json
