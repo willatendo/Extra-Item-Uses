@@ -19,7 +19,7 @@ import net.minecraft.world.item.Items;
 public class MoreRightClickFunctionsJeiPlugin implements IModPlugin {
 	@Override
 	public ResourceLocation getPluginUid() {
-		return MoreRightClickFunctionsJeiConstants.MORE_RIGHT_CLICK_FUNCTIONS_PLUGIN;
+		return MoreRightClickFunctionsJeiConstants.ID;
 	}
 
 	@Override

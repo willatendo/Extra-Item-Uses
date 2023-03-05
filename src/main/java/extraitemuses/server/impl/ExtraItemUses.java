@@ -1,15 +1,11 @@
 package extraitemuses.server.impl;
 
-import java.util.List;
 import java.util.Optional;
-
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMap.Builder;
 
 import extraitemuses.api.ExtraItemUse;
 import extraitemuses.api.ItemUses;
+import extraitemuses.server.ExtraItemUsesMaps;
 import extraitemuses.server.block.ExtraItemUsesBlockTags;
-import extraitemuses.server.uses.CrackablesBlockMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -36,12 +32,7 @@ public class ExtraItemUses {
 
 		@Override
 		public void onRightClick(ItemStack itemStack, Player player, Level level, BlockPos blockPos, BlockState blockState, InteractionHand interactionHand, int fireAspectLevel) {
-			Builder<BlockState, BlockState> maps = ImmutableMap.builder();
-			for (int i = 0; i < CrackablesBlockMap.Register.CRACKABLES.get().getValues().size(); i++) {
-				List<CrackablesBlockMap> crackablesBlockMaps = CrackablesBlockMap.Register.CRACKABLES.get().getValues().stream().toList();
-				maps.put(crackablesBlockMaps.get(i).input(), crackablesBlockMaps.get(i).output());
-			}
-			Optional<BlockState> crack = Optional.ofNullable(maps.build().get(blockState));
+			Optional<BlockState> crack = Optional.ofNullable(getCracked(blockState));
 			if (crack.isPresent()) {
 				level.playSound(player, blockPos, SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
 				level.setBlockAndUpdate(blockPos, crack.get());
@@ -52,6 +43,11 @@ public class ExtraItemUses {
 				}
 				player.swing(interactionHand);
 			}
+		}
+
+		public static BlockState getCracked(BlockState blockState) {
+			Block block = ExtraItemUsesMaps.CRACKABLES.build().get(blockState.getBlock());
+			return block != null ? block.defaultBlockState() : null;
 		}
 	}
 
@@ -134,6 +130,11 @@ public class ExtraItemUses {
 				player.swing(interactionHand);
 			}
 		}
+
+		public static BlockState getGrindables(BlockState blockState) {
+			Block block = ExtraItemUsesMaps.GRINDABLES.build().get(blockState.getBlock());
+			return block != null ? block.defaultBlockState() : null;
+		}
 	}
 
 	public static class StickChiselingItemUse implements ExtraItemUse {
@@ -153,29 +154,10 @@ public class ExtraItemUses {
 				player.swing(interactionHand);
 			}
 		}
-	}
 
-	private static BlockState getGrindables(BlockState state) {
-		Builder<Block, Block> crackables = ImmutableMap.builder();
-		for (int i = 0; i < CrackablesBlockMap.Register.CRACKABLES.get().getValues().size(); i++) {
-			List<CrackablesBlockMap> map = CrackablesBlockMap.Register.CRACKABLES.get().getValues().stream().toList();
-			Block input = map.get(i).input().getBlock();
-			Block output = map.get(i).output().getBlock();
-			crackables.put(input, output);
+		public static BlockState getChiseled(BlockState blockState) {
+			Block block = ExtraItemUsesMaps.CHISELABLES.build().get(blockState.getBlock());
+			return block != null ? block.defaultBlockState() : null;
 		}
-		Block block = crackables.build().get(state.getBlock());
-		return block != null ? block.defaultBlockState() : null;
-	}
-
-	private static BlockState getChiseled(BlockState state) {
-		Builder<Block, Block> crackables = ImmutableMap.builder();
-		for (int i = 0; i < CrackablesBlockMap.Register.CRACKABLES.get().getValues().size(); i++) {
-			List<CrackablesBlockMap> map = CrackablesBlockMap.Register.CRACKABLES.get().getValues().stream().toList();
-			Block input = map.get(i).input().getBlock();
-			Block output = map.get(i).output().getBlock();
-			crackables.put(input, output);
-		}
-		Block block = crackables.build().get(state.getBlock());
-		return block != null ? block.defaultBlockState() : null;
 	}
 }

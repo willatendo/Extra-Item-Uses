@@ -1,0 +1,8 @@
+{
+	"input": {
+		"Name": "minecraft:white_wool"
+	},
+	"output": {
+		"Name": "minecraft:bedrock"
+	}
+}

@@ -17,7 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractCandleBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.event.OnDatapackSyncEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -75,24 +74,5 @@ public class ForgeBusEvents {
 				}
 			}
 		}
-	}
-
-	@SubscribeEvent
-	public static void makeMapsOnCommonSetup(OnDatapackSyncEvent event) {
-//		for (int i = 0; i < ExtraItemUsesConfig.COMMON_CONFIG.crackables_input.get().size(); i++) {
-//			Block input = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ExtraItemUsesConfig.COMMON_CONFIG.crackables_input.get().get(i)));
-//			Block output = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ExtraItemUsesConfig.COMMON_CONFIG.crackables_output.get().get(i)));
-//			ExtraItemUsesMaps.CRACKABLES.put(input, output);
-//		}
-//		for (int i = 0; i < ExtraItemUsesConfig.COMMON_CONFIG.grindables_input.get().size(); i++) {
-//			Block input = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ExtraItemUsesConfig.COMMON_CONFIG.grindables_input.get().get(i)));
-//			Block output = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ExtraItemUsesConfig.COMMON_CONFIG.grindables_output.get().get(i)));
-//			ExtraItemUsesMaps.GRINDABLES.put(input, output);
-//		}
-//		for (int i = 0; i < ExtraItemUsesConfig.COMMON_CONFIG.chiselables_input.get().size(); i++) {
-//			Block input = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ExtraItemUsesConfig.COMMON_CONFIG.chiselables_input.get().get(i)));
-//			Block output = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ExtraItemUsesConfig.COMMON_CONFIG.chiselables_output.get().get(i)));
-//			ExtraItemUsesMaps.CHISELABLES.put(input, output);
-//		}
 	}
 }
