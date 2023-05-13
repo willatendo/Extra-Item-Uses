@@ -1,18 +1,15 @@
 package extraitemuses.server.events;
 
-import java.util.List;
-
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import extraitemuses.ExtraItemUsesMod;
-import extraitemuses.server.ExtraItemUsesMaps;
-import extraitemuses.server.uses.BlockMap;
-import extraitemuses.server.uses.BlockMap.ChiselablesBlockMap;
-import extraitemuses.server.uses.BlockMap.CrackablesBlockMap;
-import extraitemuses.server.uses.BlockMap.GrindablesBlockMap;
+import extraitemuses.server.ExtraItemUsesRegistry;
+import extraitemuses.server.uses.ChiselablesBlockMap;
+import extraitemuses.server.uses.CrackablesBlockMap;
+import extraitemuses.server.uses.GrindablesBlockMap;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -35,39 +32,14 @@ public class DebugCommands {
 		dispatcher.register(Commands.literal("debug.getAllLoaded").executes(new Command<CommandSourceStack>() {
 			@Override
 			public int run(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
-				for (CrackablesBlockMap crackablesBlockMap : BlockMap.Register.CRACKABLES.get().getValues()) {
-					context.getSource().sendSuccess(Component.literal(BlockMap.Register.CRACKABLES.get().getKey(crackablesBlockMap) + " Registered!"), true);
+				for (CrackablesBlockMap crackablesBlockMap : ExtraItemUsesRegistry.CRACKABLES.get().getValues()) {
+					context.getSource().sendSuccess(Component.literal(ExtraItemUsesRegistry.CRACKABLES.get().getKey(crackablesBlockMap) + " Registered!"), true);
 				}
-				for (GrindablesBlockMap grindablesBlockMap : BlockMap.Register.GRINDABLES.get().getValues()) {
-					context.getSource().sendSuccess(Component.literal(BlockMap.Register.GRINDABLES.get().getKey(grindablesBlockMap) + " Registered!"), true);
+				for (GrindablesBlockMap grindablesBlockMap : ExtraItemUsesRegistry.GRINDABLES.get().getValues()) {
+					context.getSource().sendSuccess(Component.literal(ExtraItemUsesRegistry.GRINDABLES.get().getKey(grindablesBlockMap) + " Registered!"), true);
 				}
-				for (ChiselablesBlockMap chiselablesBlockMap : BlockMap.Register.CHISELABLES.get().getValues()) {
-					context.getSource().sendSuccess(Component.literal(BlockMap.Register.CHISELABLES.get().getKey(chiselablesBlockMap) + " Registered!"), true);
-				}
-
-				context.getSource().sendSuccess(Component.literal("Done"), true);
-				return 0;
-			}
-		}));
-		dispatcher.register(Commands.literal("debug.reloadmaps").executes(new Command<CommandSourceStack>() {
-			@Override
-			public int run(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
-				for (int i = 0; i < BlockMap.Register.CRACKABLES.get().getValues().size(); i++) {
-					List<CrackablesBlockMap> crackablesBlockMaps = BlockMap.Register.CRACKABLES.get().getValues().stream().toList();
-					ExtraItemUsesMaps.CRACKABLES.put(crackablesBlockMaps.get(i).getBlockMap().input().getBlock(), crackablesBlockMaps.get(i).getBlockMap().output().getBlock());
-					context.getSource().sendSuccess(Component.literal("Done"), true);
-				}
-
-				for (int i = 0; i < BlockMap.Register.GRINDABLES.get().getValues().size(); i++) {
-					List<GrindablesBlockMap> grindablesBlockMaps = BlockMap.Register.GRINDABLES.get().getValues().stream().toList();
-					ExtraItemUsesMaps.GRINDABLES.put(grindablesBlockMaps.get(i).getBlockMap().input().getBlock(), grindablesBlockMaps.get(i).getBlockMap().output().getBlock());
-					context.getSource().sendSuccess(Component.literal("Done"), true);
-				}
-
-				for (int i = 0; i < BlockMap.Register.CHISELABLES.get().getValues().size(); i++) {
-					List<ChiselablesBlockMap> chiselablesBlockMaps = BlockMap.Register.CHISELABLES.get().getValues().stream().toList();
-					ExtraItemUsesMaps.CHISELABLES.put(chiselablesBlockMaps.get(i).getBlockMap().input().getBlock(), chiselablesBlockMaps.get(i).getBlockMap().output().getBlock());
-					context.getSource().sendSuccess(Component.literal("Done"), true);
+				for (ChiselablesBlockMap chiselablesBlockMap : ExtraItemUsesRegistry.CHISELABLES.get().getValues()) {
+					context.getSource().sendSuccess(Component.literal(ExtraItemUsesRegistry.CHISELABLES.get().getKey(chiselablesBlockMap) + " Registered!"), true);
 				}
 
 				context.getSource().sendSuccess(Component.literal("Done"), true);

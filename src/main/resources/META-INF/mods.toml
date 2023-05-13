@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[44,)"
+loaderVersion="[45,)"
 license="https://github.com/willatendo/Willatendos-Licensing"
 issueTrackerURL="https://github.com/willatendo/More-Right-Click-Functions/issues"
 
@@ -18,13 +18,13 @@ Adds more right click functions!
 [[dependencies.extraitemuses]] 
     modId="forge" 
     mandatory=true 
-    versionRange="[44,)" 
+    versionRange="[45,)" 
     ordering="NONE"
     side="BOTH"
     
 [[dependencies.extraitemuses]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.3,1.20)"
+    versionRange="[1.19.4,1.20)"
     ordering="NONE"
     side="BOTH"

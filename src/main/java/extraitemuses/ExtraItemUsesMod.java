@@ -1,7 +1,7 @@
 package extraitemuses;
 
+import extraitemuses.server.ExtraItemUsesRegistry;
 import extraitemuses.server.impl.ExtraItemUses;
-import extraitemuses.server.uses.BlockMap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -14,9 +14,9 @@ public class ExtraItemUsesMod {
 	public ExtraItemUsesMod() {
 		IEventBus iEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-		BlockMap.Register.DEFERRED_CRACKABLES.register(iEventBus);
-		BlockMap.Register.DEFERRED_GRINDABLES.register(iEventBus);
-		BlockMap.Register.DEFERRED_CHISELABLES.register(iEventBus);
+		ExtraItemUsesRegistry.DEFERRED_CRACKABLES.register(iEventBus);
+		ExtraItemUsesRegistry.DEFERRED_GRINDABLES.register(iEventBus);
+		ExtraItemUsesRegistry.DEFERRED_CHISELABLES.register(iEventBus);
 
 		ExtraItemUses.load();
 	}

@@ -2,9 +2,9 @@ package extraitemuses.server.events;
 
 import extraitemuses.ExtraItemUsesMod;
 import extraitemuses.api.ExtraItemUsesRegistries;
-import extraitemuses.server.uses.BlockMap.ChiselablesBlockMap;
-import extraitemuses.server.uses.BlockMap.CrackablesBlockMap;
-import extraitemuses.server.uses.BlockMap.GrindablesBlockMap;
+import extraitemuses.server.uses.ChiselablesBlockMap;
+import extraitemuses.server.uses.CrackablesBlockMap;
+import extraitemuses.server.uses.GrindablesBlockMap;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;

@@ -1,15 +1,13 @@
 package extraitemuses.server.events;
 
-import java.util.List;
-
 import extraitemuses.ExtraItemUsesMod;
 import extraitemuses.api.ExtraItemUse;
 import extraitemuses.api.ItemUses;
-import extraitemuses.server.ExtraItemUsesMaps;
-import extraitemuses.server.uses.BlockMap;
-import extraitemuses.server.uses.BlockMap.ChiselablesBlockMap;
-import extraitemuses.server.uses.BlockMap.CrackablesBlockMap;
-import extraitemuses.server.uses.BlockMap.GrindablesBlockMap;
+import extraitemuses.server.ExtraItemUsesRegistry;
+import extraitemuses.server.impl.ExtraItemUses;
+import extraitemuses.server.uses.ChiselablesBlockMap;
+import extraitemuses.server.uses.CrackablesBlockMap;
+import extraitemuses.server.uses.GrindablesBlockMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -35,24 +33,40 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 public class ForgeBusEvents {
 	@SubscribeEvent
 	public static void addRightClickFunctions(OnDatapackSyncEvent event) {
-		for (int i = 0; i < BlockMap.Register.CRACKABLES.get().getValues().size(); i++) {
-			List<CrackablesBlockMap> crackablesBlockMaps = BlockMap.Register.CRACKABLES.get().getValues().stream().toList();
-			ExtraItemUsesMaps.CRACKABLES.put(crackablesBlockMaps.get(i).getBlockMap().input().getBlock(), crackablesBlockMaps.get(i).getBlockMap().output().getBlock());
-		}
-
-		for (int i = 0; i < BlockMap.Register.GRINDABLES.get().getValues().size(); i++) {
-			List<GrindablesBlockMap> grindablesBlockMaps = BlockMap.Register.GRINDABLES.get().getValues().stream().toList();
-			ExtraItemUsesMaps.GRINDABLES.put(grindablesBlockMaps.get(i).getBlockMap().input().getBlock(), grindablesBlockMaps.get(i).getBlockMap().output().getBlock());
-		}
-
-		for (int i = 0; i < BlockMap.Register.CHISELABLES.get().getValues().size(); i++) {
-			List<ChiselablesBlockMap> chiselablesBlockMaps = BlockMap.Register.CHISELABLES.get().getValues().stream().toList();
-			ExtraItemUsesMaps.CHISELABLES.put(chiselablesBlockMaps.get(i).getBlockMap().input().getBlock(), chiselablesBlockMaps.get(i).getBlockMap().output().getBlock());
-		}
+//		for (int i = 0; i < BlockMap.Register.CRACKABLES.get().getValues().size(); i++) {
+//			List<CrackablesBlockMap> crackablesBlockMaps = BlockMap.Register.CRACKABLES.get().getValues().stream().toList();
+//			ExtraItemUsesMaps.CRACKABLES.put(crackablesBlockMaps.get(i).getBlockMap().input().getBlock(), crackablesBlockMaps.get(i).getBlockMap().output().getBlock());
+//		}
+//
+//		for (int i = 0; i < BlockMap.Register.GRINDABLES.get().getValues().size(); i++) {
+//			List<GrindablesBlockMap> grindablesBlockMaps = BlockMap.Register.GRINDABLES.get().getValues().stream().toList();
+//			ExtraItemUsesMaps.GRINDABLES.put(grindablesBlockMaps.get(i).getBlockMap().input().getBlock(), grindablesBlockMaps.get(i).getBlockMap().output().getBlock());
+//		}
+//
+//		for (int i = 0; i < BlockMap.Register.CHISELABLES.get().getValues().size(); i++) {
+//			List<ChiselablesBlockMap> chiselablesBlockMaps = BlockMap.Register.CHISELABLES.get().getValues().stream().toList();
+//			ExtraItemUsesMaps.CHISELABLES.put(chiselablesBlockMaps.get(i).getBlockMap().input().getBlock(), chiselablesBlockMaps.get(i).getBlockMap().output().getBlock());
+//		}
 	}
 
 	@SubscribeEvent
 	public static void rightClickFunctions(RightClickBlock event) {
+		if (ExtraItemUses.chiseling == null) {
+			for (ChiselablesBlockMap chiselablesBlockMap : ExtraItemUsesRegistry.CHISELABLES.get().getValues()) {
+				ExtraItemUses.chiseling.build().of(chiselablesBlockMap.getBlockMap().getInput(), chiselablesBlockMap.getBlockMap().getOutput());
+			}
+		}
+		if (ExtraItemUses.crackables == null) {
+			for (CrackablesBlockMap crackablesBlockMap : ExtraItemUsesRegistry.CRACKABLES.get().getValues()) {
+				ExtraItemUses.crackables.build().of(crackablesBlockMap.getBlockMap().getInput(), crackablesBlockMap.getBlockMap().getOutput());
+			}
+		}
+		if (ExtraItemUses.grinding == null) {
+			for (GrindablesBlockMap grindablesBlockMap : ExtraItemUsesRegistry.GRINDABLES.get().getValues()) {
+				ExtraItemUses.grinding.build().of(grindablesBlockMap.getBlockMap().getInput(), grindablesBlockMap.getBlockMap().getOutput());
+			}
+		}
+
 		ItemStack itemStack = event.getItemStack();
 		Player player = event.getEntity();
 		Level level = event.getLevel();

@@ -2,9 +2,11 @@ package extraitemuses.server.impl;
 
 import java.util.Optional;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap.Builder;
+
 import extraitemuses.api.ExtraItemUse;
 import extraitemuses.api.ItemUses;
-import extraitemuses.server.ExtraItemUsesMaps;
 import extraitemuses.server.block.ExtraItemUsesBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -16,10 +18,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class ExtraItemUses {
+	public static Builder<BlockState, BlockState> crackables = ImmutableMap.builder();
+	public static Builder<BlockState, BlockState> grinding = ImmutableMap.builder();
+	public static Builder<BlockState, BlockState> chiseling = ImmutableMap.builder();
+
 	public static void load() {
 		ItemUses.EXTRA_PICKAXE_USES.add(PickaxeCrackingItemUse.INSTANCE);
 		ItemUses.EXTRA_PICKAXE_USES.add(PickaxeOreItemUse.INSTANCE);
@@ -46,8 +51,12 @@ public class ExtraItemUses {
 		}
 
 		public static BlockState getCracked(BlockState blockState) {
-			Block block = ExtraItemUsesMaps.CRACKABLES.build().get(blockState.getBlock());
-			return block != null ? block.defaultBlockState() : null;
+			if (ExtraItemUses.crackables == null) {
+				BlockState cracked = ExtraItemUses.crackables.build().get(blockState.getBlock());
+				return cracked != null ? cracked : null;
+			} else {
+				return null;
+			}
 		}
 	}
 
@@ -132,8 +141,12 @@ public class ExtraItemUses {
 		}
 
 		public static BlockState getGrindables(BlockState blockState) {
-			Block block = ExtraItemUsesMaps.GRINDABLES.build().get(blockState.getBlock());
-			return block != null ? block.defaultBlockState() : null;
+			if (ExtraItemUses.grinding == null) {
+				BlockState grinded = ExtraItemUses.grinding.build().get(blockState.getBlock());
+				return grinded != null ? grinded : null;
+			} else {
+				return null;
+			}
 		}
 	}
 
@@ -156,8 +169,12 @@ public class ExtraItemUses {
 		}
 
 		public static BlockState getChiseled(BlockState blockState) {
-			Block block = ExtraItemUsesMaps.CHISELABLES.build().get(blockState.getBlock());
-			return block != null ? block.defaultBlockState() : null;
+			if (ExtraItemUses.chiseling == null) {
+				BlockState chiseled = ExtraItemUses.chiseling.build().get(blockState.getBlock());
+				return chiseled != null ? chiseled : null;
+			} else {
+				return null;
+			}
 		}
 	}
 }

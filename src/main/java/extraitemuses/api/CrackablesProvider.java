@@ -35,12 +35,12 @@ public abstract class CrackablesProvider implements DataProvider {
 			JsonObject crackable = new JsonObject();
 			JsonObject input = new JsonObject();
 			crackable.add("input", input);
-			input.addProperty("Name", ForgeRegistries.BLOCKS.getKey(blockMap.input().getBlock()).toString());
+			input.addProperty("Name", ForgeRegistries.BLOCKS.getKey(blockMap.getInput().getBlock()).toString());
 			JsonObject output = new JsonObject();
 			crackable.add("output", output);
-			output.addProperty("Name", ForgeRegistries.BLOCKS.getKey(blockMap.output().getBlock()).toString());
+			output.addProperty("Name", ForgeRegistries.BLOCKS.getKey(blockMap.getOutput().getBlock()).toString());
 
-			completableFutures.add(DataProvider.saveStable(cachedOutput, crackable, path.resolve("data/" + this.modid + "/extraitemuses/crackables/" + ForgeRegistries.BLOCKS.getKey(blockMap.input().getBlock()).getPath() + "_to_" + ForgeRegistries.BLOCKS.getKey(blockMap.output().getBlock()).getPath() + ".json")));
+			completableFutures.add(DataProvider.saveStable(cachedOutput, crackable, path.resolve("data/" + this.modid + "/extraitemuses/crackables/" + ForgeRegistries.BLOCKS.getKey(blockMap.getInput().getBlock()).getPath() + "_to_" + ForgeRegistries.BLOCKS.getKey(blockMap.getOutput().getBlock()).getPath() + ".json")));
 		}
 
 		return CompletableFuture.allOf(completableFutures.stream().toArray(CompletableFuture[]::new));
