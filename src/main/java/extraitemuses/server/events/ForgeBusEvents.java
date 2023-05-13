@@ -1,8 +1,15 @@
 package extraitemuses.server.events;
 
+import java.util.List;
+
 import extraitemuses.ExtraItemUsesMod;
 import extraitemuses.api.ExtraItemUse;
 import extraitemuses.api.ItemUses;
+import extraitemuses.server.ExtraItemUsesMaps;
+import extraitemuses.server.uses.BlockMap;
+import extraitemuses.server.uses.BlockMap.ChiselablesBlockMap;
+import extraitemuses.server.uses.BlockMap.CrackablesBlockMap;
+import extraitemuses.server.uses.BlockMap.GrindablesBlockMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -17,6 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractCandleBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraftforge.event.OnDatapackSyncEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,7 +34,25 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 @EventBusSubscriber(bus = Bus.FORGE, modid = ExtraItemUsesMod.ID)
 public class ForgeBusEvents {
 	@SubscribeEvent
-	public static void addRightClickFunctions(RightClickBlock event) {
+	public static void addRightClickFunctions(OnDatapackSyncEvent event) {
+		for (int i = 0; i < BlockMap.Register.CRACKABLES.get().getValues().size(); i++) {
+			List<CrackablesBlockMap> crackablesBlockMaps = BlockMap.Register.CRACKABLES.get().getValues().stream().toList();
+			ExtraItemUsesMaps.CRACKABLES.put(crackablesBlockMaps.get(i).getBlockMap().input().getBlock(), crackablesBlockMaps.get(i).getBlockMap().output().getBlock());
+		}
+
+		for (int i = 0; i < BlockMap.Register.GRINDABLES.get().getValues().size(); i++) {
+			List<GrindablesBlockMap> grindablesBlockMaps = BlockMap.Register.GRINDABLES.get().getValues().stream().toList();
+			ExtraItemUsesMaps.GRINDABLES.put(grindablesBlockMaps.get(i).getBlockMap().input().getBlock(), grindablesBlockMaps.get(i).getBlockMap().output().getBlock());
+		}
+
+		for (int i = 0; i < BlockMap.Register.CHISELABLES.get().getValues().size(); i++) {
+			List<ChiselablesBlockMap> chiselablesBlockMaps = BlockMap.Register.CHISELABLES.get().getValues().stream().toList();
+			ExtraItemUsesMaps.CHISELABLES.put(chiselablesBlockMaps.get(i).getBlockMap().input().getBlock(), chiselablesBlockMaps.get(i).getBlockMap().output().getBlock());
+		}
+	}
+
+	@SubscribeEvent
+	public static void rightClickFunctions(RightClickBlock event) {
 		ItemStack itemStack = event.getItemStack();
 		Player player = event.getEntity();
 		Level level = event.getLevel();

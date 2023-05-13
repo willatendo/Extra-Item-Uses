@@ -1,4 +1,4 @@
-package extraitemuses.server;
+package extraitemuses.server.events;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import extraitemuses.ExtraItemUsesMod;
+import extraitemuses.server.ExtraItemUsesMaps;
 import extraitemuses.server.uses.BlockMap;
 import extraitemuses.server.uses.BlockMap.ChiselablesBlockMap;
 import extraitemuses.server.uses.BlockMap.CrackablesBlockMap;
@@ -31,6 +32,23 @@ public class DebugCommands {
 	}
 
 	private static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+		dispatcher.register(Commands.literal("debug.getAllLoaded").executes(new Command<CommandSourceStack>() {
+			@Override
+			public int run(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+				for (CrackablesBlockMap crackablesBlockMap : BlockMap.Register.CRACKABLES.get().getValues()) {
+					context.getSource().sendSuccess(Component.literal(BlockMap.Register.CRACKABLES.get().getKey(crackablesBlockMap) + " Registered!"), true);
+				}
+				for (GrindablesBlockMap grindablesBlockMap : BlockMap.Register.GRINDABLES.get().getValues()) {
+					context.getSource().sendSuccess(Component.literal(BlockMap.Register.GRINDABLES.get().getKey(grindablesBlockMap) + " Registered!"), true);
+				}
+				for (ChiselablesBlockMap chiselablesBlockMap : BlockMap.Register.CHISELABLES.get().getValues()) {
+					context.getSource().sendSuccess(Component.literal(BlockMap.Register.CHISELABLES.get().getKey(chiselablesBlockMap) + " Registered!"), true);
+				}
+
+				context.getSource().sendSuccess(Component.literal("Done"), true);
+				return 0;
+			}
+		}));
 		dispatcher.register(Commands.literal("debug.reloadmaps").executes(new Command<CommandSourceStack>() {
 			@Override
 			public int run(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
