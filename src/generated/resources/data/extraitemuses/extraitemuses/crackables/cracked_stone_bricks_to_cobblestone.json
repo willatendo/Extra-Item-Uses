@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:cracked_stone_bricks"
+  },
+  "output": {
+    "Name": "minecraft:cobblestone"
+  }
+}

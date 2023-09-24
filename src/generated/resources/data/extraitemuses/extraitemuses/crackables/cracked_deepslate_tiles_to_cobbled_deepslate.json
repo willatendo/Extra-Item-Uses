@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:cracked_deepslate_tiles"
+  },
+  "output": {
+    "Name": "minecraft:cobbled_deepslate"
+  }
+}

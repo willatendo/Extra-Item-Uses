@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:cracked_deepslate_bricks"
+  },
+  "output": {
+    "Name": "minecraft:cobbled_deepslate"
+  }
+}

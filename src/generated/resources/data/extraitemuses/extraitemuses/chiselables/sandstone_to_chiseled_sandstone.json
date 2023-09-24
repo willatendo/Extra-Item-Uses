@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:sandstone"
+  },
+  "output": {
+    "Name": "minecraft:chiseled_sandstone"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:infested_stone_bricks"
+  },
+  "output": {
+    "Name": "minecraft:infested_cracked_stone_bricks"
+  }
+}

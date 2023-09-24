@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:deepslate_bricks"
+  },
+  "output": {
+    "Name": "minecraft:chiseled_deepslate"
+  }
+}

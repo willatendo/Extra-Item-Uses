@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:polished_blackstone_bricks"
+  },
+  "output": {
+    "Name": "minecraft:cracked_polished_blackstone_bricks"
+  }
+}
