@@ -9,27 +9,27 @@ import java.util.concurrent.CompletableFuture;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public abstract class CrackablesProvider implements DataProvider {
 	private final Map<BlockState, BlockState> blockMaps = new HashMap<>();
-	private final PackOutput packOutput;
-	private final String modid;
+	private final FabricDataOutput fabricDataOutput;
+	private final String modId;
 
-	public CrackablesProvider(PackOutput packOutput, String modid) {
-		this.packOutput = packOutput;
-		this.modid = modid;
+	public CrackablesProvider(FabricDataOutput fabricDataOutput, String modId) {
+		this.fabricDataOutput = fabricDataOutput;
+		this.modId = modId;
 	}
 
 	@Override
 	public CompletableFuture<?> run(CachedOutput cachedOutput) {
 		this.crackables();
 
-		Path path = this.packOutput.getOutputFolder();
+		Path path = this.fabricDataOutput.getOutputFolder();
 		ArrayList<CompletableFuture> completableFutures = Lists.newArrayList();
 		for (int i = 0; i < this.blockMaps.size(); i++) {
 			BlockState inputState = this.blockMaps.keySet().stream().toList().get(i);
@@ -37,12 +37,12 @@ public abstract class CrackablesProvider implements DataProvider {
 			JsonObject crackable = new JsonObject();
 			JsonObject input = new JsonObject();
 			crackable.add("input", input);
-			input.addProperty("Name", ForgeRegistries.BLOCKS.getKey(inputState.getBlock()).toString());
+			input.addProperty("Name", BuiltInRegistries.BLOCK.getKey(inputState.getBlock()).toString());
 			JsonObject output = new JsonObject();
 			crackable.add("output", output);
-			output.addProperty("Name", ForgeRegistries.BLOCKS.getKey(outputState.getBlock()).toString());
+			output.addProperty("Name", BuiltInRegistries.BLOCK.getKey(outputState.getBlock()).toString());
 
-			completableFutures.add(DataProvider.saveStable(cachedOutput, crackable, path.resolve("data/" + this.modid + "/extraitemuses/crackables/" + ForgeRegistries.BLOCKS.getKey(inputState.getBlock()).getPath() + "_to_" + ForgeRegistries.BLOCKS.getKey(outputState.getBlock()).getPath() + ".json")));
+			completableFutures.add(DataProvider.saveStable(cachedOutput, crackable, path.resolve("data/" + this.modId + "/extraitemuses/crackables/" + BuiltInRegistries.BLOCK.getKey(inputState.getBlock()).getPath() + "_to_" + BuiltInRegistries.BLOCK.getKey(outputState.getBlock()).getPath() + ".json")));
 		}
 
 		return CompletableFuture.allOf(completableFutures.stream().toArray(CompletableFuture[]::new));
@@ -56,6 +56,6 @@ public abstract class CrackablesProvider implements DataProvider {
 
 	@Override
 	public String getName() {
-		return "Crackables";
+		return "Crackables: " + this.modId;
 	}
 }

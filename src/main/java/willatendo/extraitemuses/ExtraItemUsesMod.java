@@ -1,12 +1,17 @@
 package willatendo.extraitemuses;
 
-import net.minecraftforge.fml.common.Mod;
+import net.fabricmc.api.ModInitializer;
+import willatendo.extraitemuses.server.event.ServerEvents;
 import willatendo.extraitemuses.server.impl.ExtraItemUses;
-import willatendo.extraitemuses.server.util.ExtraItemUsesUtils;
 
-@Mod(ExtraItemUsesUtils.ID)
-public class ExtraItemUsesMod {
-	public ExtraItemUsesMod() {
+public class ExtraItemUsesMod implements ModInitializer {
+	@Override
+	public void onInitialize() {
+		ServerEvents.dataPackRegistry();
+		ServerEvents.makeRegistries();
+		ServerEvents.addRightClickFunctions();
+		ServerEvents.rightClickFunctions();
+
 		ExtraItemUses.load();
 	}
 }

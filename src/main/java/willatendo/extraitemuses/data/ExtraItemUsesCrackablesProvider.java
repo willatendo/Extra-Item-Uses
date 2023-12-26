@@ -1,12 +1,12 @@
 package willatendo.extraitemuses.data;
 
-import net.minecraft.data.PackOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.world.level.block.Blocks;
 import willatendo.extraitemuses.api.CrackablesProvider;
 
 public class ExtraItemUsesCrackablesProvider extends CrackablesProvider {
-	public ExtraItemUsesCrackablesProvider(PackOutput packOutput, String modid) {
-		super(packOutput, modid);
+	public ExtraItemUsesCrackablesProvider(FabricDataOutput fabricDataOutput, String modid) {
+		super(fabricDataOutput, modid);
 	}
 
 	@Override

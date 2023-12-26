@@ -2,16 +2,16 @@ package willatendo.extraitemuses.data;
 
 import java.util.concurrent.CompletableFuture;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup.Provider;
-import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import willatendo.extraitemuses.server.block.ExtraItemUsesBlockTags;
+import willatendo.simplelibrary.data.SimpleBlockTagsProvider;
+import willatendo.simplelibrary.data.util.ExistingFileHelper;
 
-public class ExtraItemUsesBlockTagsProvider extends BlockTagsProvider {
-	public ExtraItemUsesBlockTagsProvider(PackOutput packOutput, CompletableFuture<Provider> completableFuture, String modId, ExistingFileHelper existingFileHelper) {
-		super(packOutput, completableFuture, modId, existingFileHelper);
+public class ExtraItemUsesBlockTagsProvider extends SimpleBlockTagsProvider {
+	public ExtraItemUsesBlockTagsProvider(FabricDataOutput fabricDataOutput, CompletableFuture<Provider> completableFuture, String modId, ExistingFileHelper existingFileHelper) {
+		super(fabricDataOutput, completableFuture, modId, existingFileHelper);
 	}
 
 	@Override

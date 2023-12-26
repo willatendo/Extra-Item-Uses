@@ -1,12 +1,12 @@
 package willatendo.extraitemuses.data;
 
-import net.minecraft.data.PackOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.world.level.block.Blocks;
 import willatendo.extraitemuses.api.ChiselablesProvider;
 
 public class ExtraItemUsesChiselablesProvider extends ChiselablesProvider {
-	public ExtraItemUsesChiselablesProvider(PackOutput packOutput, String modid) {
-		super(packOutput, modid);
+	public ExtraItemUsesChiselablesProvider(FabricDataOutput fabricDataOutput, String modid) {
+		super(fabricDataOutput, modid);
 	}
 
 	@Override

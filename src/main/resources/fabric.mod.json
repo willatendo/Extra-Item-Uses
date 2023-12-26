@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "extraitemuses",
+	"version": "2.0.0",
+	"name": "Extra Item Uses",
+	"description": "Adds new functions to items!",
+	"authors": [
+		"Willatendo"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/extra-item-uses",
+		"sources": "https://github.com/willatendo/Extra-Item-Uses"
+	},
+	"license": "MIT",
+	"icon": "extra_item_uses_icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"willatendo.extraitemuses.ExtraItemUsesMod"
+		],
+		"fabric-datagen": [
+			"willatendo.extraitemuses.data.ExtraItemUsesData"
+		]
+	},
+	"mixins": [
+	],
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
