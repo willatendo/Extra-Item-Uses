@@ -1,0 +1,61 @@
+plugins {
+    id 'idea'
+    id 'net.neoforged.gradle.userdev' version '7.0.81'
+    id 'java-library'
+}
+
+base {
+    archivesName = "extraitemuses-neoforge"
+}
+
+jarJar.enable()
+
+runs {
+    configureEach {
+        modSource project.sourceSets.main
+    }
+
+    client {
+        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+    }
+
+    server {
+        systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        programArgument '--nogui'
+    }
+
+    data {
+        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file("${project(':common').projectDir.path}/src/generated/resources/").getAbsolutePath(), '--existing', file("${project(':common').projectDir.path}/src/main/resources/").getAbsolutePath()
+    }
+}
+
+sourceSets.main.resources { srcDir "${project(':common').projectDir.path}/src/generated/resources/" }
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neoforge_version}"
+
+    implementation "simplelibrary:simplelibrary-neoforge:${simple_library_version}"
+    jarJar(group: 'simplelibrary', name: 'simplelibrary-neoforge', version: "[3.0.0,4.0.0)")
+
+    compileOnly project(":common")
+
+    implementation "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+}
+
+Spec<Task> notNeoTask = { Task it -> !it.name.startsWith("neo") } as Spec<Task>
+
+tasks.withType(JavaCompile).matching(notNeoTask).configureEach {
+    source(project(":common").sourceSets.main.allSource)
+}
+
+tasks.withType(Javadoc).matching(notNeoTask).configureEach {
+    source(project(":common").sourceSets.main.allJava)
+}
+
+tasks.named("sourcesJar", Jar) {
+    from(project(":common").sourceSets.main.allSource)
+}
+
+tasks.withType(ProcessResources).matching(notNeoTask).configureEach {
+    from project(":common").sourceSets.main.resources
+}

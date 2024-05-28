@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "${homepage}",
+    "sources": "${issue_tracker}"
+  },
+  "license": "${license}",
+  "icon": "${icon}",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "willatendo.extraitemuses.ExtraItemUsesFabricMod"
+    ],
+    "jei_mod_plugin": [
+      "willatendo.extraitemuses.server.jei.ExtraItemUsesJEI"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${fabric_version}",
+    "minecraft": "~1.20.4",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

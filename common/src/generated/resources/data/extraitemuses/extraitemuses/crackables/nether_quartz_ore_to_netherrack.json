@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:nether_quartz_ore"
+  },
+  "output": {
+    "Name": "minecraft:netherrack"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:copper_ore"
+  },
+  "output": {
+    "Name": "minecraft:cobblestone"
+  }
+}

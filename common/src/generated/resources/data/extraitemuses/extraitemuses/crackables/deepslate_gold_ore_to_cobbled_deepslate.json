@@ -1,0 +1,8 @@
+{
+  "input": {
+    "Name": "minecraft:deepslate_gold_ore"
+  },
+  "output": {
+    "Name": "minecraft:cobbled_deepslate"
+  }
+}

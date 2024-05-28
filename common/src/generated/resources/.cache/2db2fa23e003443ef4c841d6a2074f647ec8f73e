@@ -1,0 +1,4 @@
+// 1.20.4	2024-05-27T17:30:12.7705592	Tags for minecraft:item mod id extraitemuses
+1ad920aa65e2706dabb6265f3b12546ab33e8936 data/extraitemuses/tags/items/chiselables_items.json
+8f9d98e8e906913bd9389fccb47fef34320f78cc data/extraitemuses/tags/items/crackable_items.json
+ea35bfd9c3fdb858ea7a59f5ce895e6c8dd7ac2f data/extraitemuses/tags/items/grindables_items.json
