@@ -1,8 +1,4 @@
 {
-  "input": {
-    "Name": "minecraft:cracked_stone_bricks"
-  },
-  "output": {
-    "Name": "minecraft:cobblestone"
-  }
+  "from_block": "minecraft:cracked_stone_bricks",
+  "to_block": "minecraft:cobblestone"
 }

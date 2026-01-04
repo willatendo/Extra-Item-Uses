@@ -1,8 +1,5 @@
 {
-  "input": {
-    "Name": "minecraft:deepslate_copper_ore"
-  },
-  "output": {
-    "Name": "minecraft:cobbled_deepslate"
-  }
+  "drop_loot": true,
+  "from_block": "minecraft:deepslate_copper_ore",
+  "to_block": "minecraft:cobbled_deepslate"
 }

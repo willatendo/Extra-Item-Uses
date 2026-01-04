@@ -1,8 +1,5 @@
 {
-  "input": {
-    "Name": "minecraft:emerald_ore"
-  },
-  "output": {
-    "Name": "minecraft:cobblestone"
-  }
+  "drop_loot": true,
+  "from_block": "minecraft:emerald_ore",
+  "to_block": "minecraft:cobblestone"
 }

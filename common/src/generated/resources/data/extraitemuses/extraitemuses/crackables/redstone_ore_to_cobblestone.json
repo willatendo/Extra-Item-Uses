@@ -1,8 +1,10 @@
 {
-  "input": {
-    "Name": "minecraft:redstone_ore"
+  "drop_loot": true,
+  "experience_drop": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 5,
+    "min_inclusive": 1
   },
-  "output": {
-    "Name": "minecraft:cobblestone"
-  }
+  "from_block": "minecraft:redstone_ore",
+  "to_block": "minecraft:cobblestone"
 }

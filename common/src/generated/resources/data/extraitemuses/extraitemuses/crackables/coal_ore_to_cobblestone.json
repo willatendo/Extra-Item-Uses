@@ -1,8 +1,10 @@
 {
-  "input": {
-    "Name": "minecraft:coal_ore"
+  "drop_loot": true,
+  "experience_drop": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 2,
+    "min_inclusive": 0
   },
-  "output": {
-    "Name": "minecraft:cobblestone"
-  }
+  "from_block": "minecraft:coal_ore",
+  "to_block": "minecraft:cobblestone"
 }

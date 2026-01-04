@@ -1,8 +1,4 @@
 {
-  "input": {
-    "Name": "minecraft:sandstone"
-  },
-  "output": {
-    "Name": "minecraft:chiseled_sandstone"
-  }
+  "from_block": "minecraft:sandstone",
+  "to_block": "minecraft:chiseled_sandstone"
 }

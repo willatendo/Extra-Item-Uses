@@ -1,0 +1,4 @@
+{
+  "from_block": "minecraft:resin_bricks",
+  "to_block": "minecraft:chiseled_resin_bricks"
+}

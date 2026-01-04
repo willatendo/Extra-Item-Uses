@@ -4,6 +4,7 @@
   "version": "${version}",
   "name": "${mod_name}",
   "description": "${description}",
+  "accessWidener": "moi.accesswidener",
   "authors": [
     "${mod_author}"
   ],
@@ -12,20 +13,23 @@
     "sources": "${issue_tracker}"
   },
   "license": "${license}",
-  "icon": "${icon}",
+  "icon": "${mod_id}_icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "willatendo.extraitemuses.ExtraItemUsesFabricMod"
+      "ca.willatendo.extraitemuses.ExtraItemUsesFabricMod"
     ],
-    "jei_mod_plugin": [
-      "willatendo.extraitemuses.server.jei.ExtraItemUsesJEI"
+    "client": [
+      "ca.willatendo.extraitemuses.client.ExtraItemUsesFabricClient"
     ]
   },
+  "mixins": [
+    "eiu.mixins.json"
+  ],
   "depends": {
-    "fabricloader": ">=${fabric_version}",
-    "minecraft": "~1.20.4",
-    "java": ">=17",
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=${java_version}",
     "fabric-api": "*"
   }
 }

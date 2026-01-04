@@ -1,8 +1,4 @@
 {
-  "input": {
-    "Name": "minecraft:deepslate_tiles"
-  },
-  "output": {
-    "Name": "minecraft:cracked_deepslate_tiles"
-  }
+  "from_block": "minecraft:deepslate_tiles",
+  "to_block": "minecraft:cracked_deepslate_tiles"
 }

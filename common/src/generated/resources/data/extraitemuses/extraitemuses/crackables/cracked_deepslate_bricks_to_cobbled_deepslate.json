@@ -1,8 +1,4 @@
 {
-  "input": {
-    "Name": "minecraft:cracked_deepslate_bricks"
-  },
-  "output": {
-    "Name": "minecraft:cobbled_deepslate"
-  }
+  "from_block": "minecraft:cracked_deepslate_bricks",
+  "to_block": "minecraft:cobbled_deepslate"
 }

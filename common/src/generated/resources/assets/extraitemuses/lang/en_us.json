@@ -1,6 +1,9 @@
 {
-  "jei.extraitemuses.chiselables": "Chiselables",
-  "jei.extraitemuses.crackables": "Crackables",
-  "jei.extraitemuses.grindables": "Grindables",
-  "resourcePack.extraitemuses.description": "Extra Item Uses Assets"
+  "resourcePack.extraitemuses.description": "Extra Item Uses assets.",
+  "stat.extraitemuses.blocks_chiseled": "Blocks Chiseled",
+  "stat.extraitemuses.blocks_crushed": "Blocks Crushed",
+  "stat.extraitemuses.blocks_ground": "Blocks Ground",
+  "tag.item.extraitemuses.chiseling_item": "Chiseling Item",
+  "tag.item.extraitemuses.cracking_item": "Cracking Item",
+  "tag.item.extraitemuses.grinding_item": "Grinding Item"
 }

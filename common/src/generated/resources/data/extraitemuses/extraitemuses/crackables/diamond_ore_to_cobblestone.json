@@ -1,8 +1,10 @@
 {
-  "input": {
-    "Name": "minecraft:diamond_ore"
+  "drop_loot": true,
+  "experience_drop": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 7,
+    "min_inclusive": 3
   },
-  "output": {
-    "Name": "minecraft:cobblestone"
-  }
+  "from_block": "minecraft:diamond_ore",
+  "to_block": "minecraft:cobblestone"
 }

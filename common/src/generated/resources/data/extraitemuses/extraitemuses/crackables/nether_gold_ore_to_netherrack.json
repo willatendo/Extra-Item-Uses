@@ -1,0 +1,10 @@
+{
+  "drop_loot": true,
+  "experience_drop": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 1,
+    "min_inclusive": 0
+  },
+  "from_block": "minecraft:nether_gold_ore",
+  "to_block": "minecraft:netherrack"
+}

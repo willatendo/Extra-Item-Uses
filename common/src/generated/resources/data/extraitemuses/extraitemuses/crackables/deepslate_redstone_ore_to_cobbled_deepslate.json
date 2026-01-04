@@ -1,8 +1,10 @@
 {
-  "input": {
-    "Name": "minecraft:deepslate_redstone_ore"
+  "drop_loot": true,
+  "experience_drop": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 5,
+    "min_inclusive": 1
   },
-  "output": {
-    "Name": "minecraft:cobbled_deepslate"
-  }
+  "from_block": "minecraft:deepslate_redstone_ore",
+  "to_block": "minecraft:cobbled_deepslate"
 }

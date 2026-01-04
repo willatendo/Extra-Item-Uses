@@ -1,8 +1,4 @@
 {
-  "input": {
-    "Name": "minecraft:polished_blackstone_bricks"
-  },
-  "output": {
-    "Name": "minecraft:cracked_polished_blackstone_bricks"
-  }
+  "from_block": "minecraft:polished_blackstone_bricks",
+  "to_block": "minecraft:cracked_polished_blackstone_bricks"
 }

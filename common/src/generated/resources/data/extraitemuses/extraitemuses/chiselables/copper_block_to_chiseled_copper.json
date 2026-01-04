@@ -1,0 +1,4 @@
+{
+  "from_block": "minecraft:copper_block",
+  "to_block": "minecraft:chiseled_copper"
+}

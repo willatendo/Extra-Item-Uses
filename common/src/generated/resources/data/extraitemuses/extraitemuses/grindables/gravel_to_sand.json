@@ -1,8 +1,4 @@
 {
-  "input": {
-    "Name": "minecraft:gravel"
-  },
-  "output": {
-    "Name": "minecraft:sand"
-  }
+  "from_block": "minecraft:gravel",
+  "to_block": "minecraft:sand"
 }

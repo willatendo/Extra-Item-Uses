@@ -1,25 +1,22 @@
 plugins {
-    id 'java'
-    id 'idea'
-    id 'fabric-loom' version '1.6-SNAPSHOT'
-}
-
-base {
-    archivesName = "extraitemuses-fabric"
+    id 'multiloader-loader'
+    id 'fabric-loom'
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
+    }
 
-    modImplementation "net.fabricmc:fabric-loader:${fabric_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${api_version}"
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
     modApi include("simplelibrary:simplelibrary-fabric:${simple_library_version}")
-
-    compileOnly project(":common")
-
-    modImplementation "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
+    modImplementation include("com.github.Chocohead:Fabric-ASM:v${mm_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 }
 
 sourceSets {
@@ -32,38 +29,27 @@ sourceSets {
 }
 
 loom {
-    //accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
+    def aw = file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+
     mixin {
         defaultRefmapName.set("${mod_id}.refmap.json")
     }
+
     runs {
         client {
             client()
-            setConfigName("Fabric Client")
+            setConfigName('Fabric Client')
             ideConfigGenerated(true)
-            runDir("run")
+            runDir('runs/client')
         }
         server {
             server()
-            setConfigName("Fabric Server")
+            setConfigName('Fabric Server')
             ideConfigGenerated(true)
-            runDir("run")
+            runDir('runs/server')
         }
     }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    source(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).configureEach {
-    source(project(":common").sourceSets.main.allJava)
-}
-
-tasks.named("sourcesJar", Jar) {
-    from(project(":common").sourceSets.main.allSource)
-}
-
-processResources {
-    from project(":common").sourceSets.main.resources
 }

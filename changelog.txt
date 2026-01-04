@@ -1,0 +1,8 @@
+3.0.0
+- Fixed some balancing issues
+
+- Update to 1.21.4
+- Cleanup code
+
+- Added New Recipes For New Blocks
+- Added Stats

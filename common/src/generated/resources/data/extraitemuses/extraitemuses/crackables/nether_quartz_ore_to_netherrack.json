@@ -1,8 +1,10 @@
 {
-  "input": {
-    "Name": "minecraft:nether_quartz_ore"
+  "drop_loot": true,
+  "experience_drop": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 5,
+    "min_inclusive": 2
   },
-  "output": {
-    "Name": "minecraft:netherrack"
-  }
+  "from_block": "minecraft:nether_quartz_ore",
+  "to_block": "minecraft:netherrack"
 }
